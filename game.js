@@ -1,6 +1,10 @@
 // Document Elements variables
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
+const questionCounterText = document.getElementById('questionCounter');
+const scoreText = document.getElementById('score');
+const progressBarFull = document.getElementById('progressBarFull');
+console.log(progressBarFull)
 
 
 // Variables
@@ -53,10 +57,15 @@ startGame = () => {
 
 getNewQuestions = () => {
     if(availableQuestions.legnth === 0 || questionCounter >= maxQuestions){
+       localStorage.setItem("mostRecentScore", score); 
         // Go to the end page
-        return window.location.assign('/end.html')
+        return window.location.assign('/results.html')
     }
     questionCounter++;
+    questionCounterText.innerText = `${questionCounter}/${maxQuestions}`;
+    // Update the progress bar
+    progressBarFull.style.width = `${(questionCounter / maxQuestions) * 100}%`;
+    console.log((questionCounter / maxQuestions) * 100)
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -72,7 +81,6 @@ getNewQuestions = () => {
 };
 
 
-
 // Checks for the chosen answer and applies the necessary class name
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
@@ -84,6 +92,10 @@ choices.forEach(choice => {
 
         const calssToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
         
+        if(calssToApply === 'correct'){
+            incrementScore(correctBonus);
+        }
+
         selectedChoice.parentElement.classList.add(calssToApply);
 
         setTimeout(() => {
@@ -94,5 +106,10 @@ choices.forEach(choice => {
         
     })
 })
+
+incrementScore = num => {
+    score += num;
+    scoreText.innerText = score;
+}
 
 startGame();
