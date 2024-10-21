@@ -4,8 +4,6 @@ const choices = Array.from(document.getElementsByClassName('choice-text'));
 const questionCounterText = document.getElementById('questionCounter');
 const scoreText = document.getElementById('score');
 const progressBarFull = document.getElementById('progressBarFull');
-console.log(progressBarFull)
-
 
 // Variables
 let currentQuestion = {};
