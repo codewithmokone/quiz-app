@@ -1,64 +1,102 @@
-.choice-container {
-    display: flex;
-    margin-bottom: 0.5rem;
-    width: 100%;
-    font-size: 1.8rem;
-    border: 0.1rem solid rgba(86, 165, 235,0.25);
-    background-color: white;
+#question {
+  font-size: 2rem;
+  color: #333;
+  margin-top: 20px;
 }
 
-.choice-container:hover{
-    cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86,185,235, 0.5);
-    transform: translateY(-0.1rem);
-    transition: transform 150ms;
+.choice-container {
+  display: flex;
+  margin-bottom: 0.8rem;
+  width: 100%;
+  font-size: 1.8rem;
+  border: 0.1rem solid rgba(86, 165, 235, 0.25);
+  background-color: white;
+  border-radius: 10px;
+}
+
+.choice-container:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
 }
 
 .choice-prefix {
-    padding: 1.5rem 2.5rem;
-    background-color: #56a5eb;
-    color: white;
+  padding: 1.5rem 2.5rem;
+  background-color: #56a5eb;
+  color: white;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .choice-text {
-    padding: 1.5rem;
-    width: 100%;
+  padding: 1.5rem;
+  width: 100%;
 }
 
 .correct {
-    background-color: #28a745;
+  background-color: #28a745;
+  border-radius: 10px;
 }
 
 .incorrect {
-    background-color: #dc3545;
+  background-color: #dc3545;
+  border-radius: 10px;
 }
 
 /* HUD */
-#hud{
-    display: flex;
-    justify-content: space-between;
+#hud {
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
 }
 
 .hud-prefix {
-    text-align: center;
-    font-size: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .hud-main-text {
-    text-align: center;
+  text-align: center;
 }
 
 #progressBar {
-    width: 60rem;
-    height: 1rem;
-    border: 0.3rem solid #56a5eb;
-    margin: 0 auto;
-    margin-top: 50px;
-    background-color: white;
+  width: 100%;
+  height: 1rem;
+  /* border: 0.3rem solid #56a5eb; */
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  background-color: white;
+  border-radius: 10px;
 }
 
-#progressBarFull{
-    width: 0%;
-    height: 0.6rem;
-    background-color: #56a5eb;
+#progressBarFull {
+  width: 0%;
+  height: 1rem;
+  background-color: #56a5eb;
+  border-radius: 10px;
+}
+
+/* LOADER */
+#loader {
+  border: 1.6rem solid white;
+  border-radius: 50%;
+  border-top: 1.6rem solid #56a5eb;
+  width: 12rem;
+  height: 12rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
